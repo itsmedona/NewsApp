@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_application_api_dec11/controller/HomePageController.dart';
+import 'package:news_application_api_dec11/model/NewsModel.dart';
 import 'package:news_application_api_dec11/view/HomePage/HomePageWidget.dart';
 import 'package:provider/provider.dart';
 
@@ -11,9 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  HomePageController mycontroller = HomePageController();
+  NewsModel nmodel = NewsModel();
+
   void initState() {
-    mycontroller.fetchData();
+    fetchData();
     super.initState();
   }
 

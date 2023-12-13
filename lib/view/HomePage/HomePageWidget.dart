@@ -19,53 +19,55 @@ class HomePageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            SizedBox(
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+            ),
+            Container(
+                height: 200,
+                width: 200,
+                color: Colors.grey,
+                child: Image.network(image)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   child: Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
-                    ),
+                    author,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                ),
-                Image.network(image),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      child: Text(
-                        author,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                    ),
-                    SizedBox(
-                      child: Text(
-                        date,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: () {
-                          Share.share(title);
-                        },
-                        icon: Icon(Icons.share))
-                  ],
                 ),
                 SizedBox(
                   child: Text(
-                    description,
+                    date,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                )
+                ),
+                IconButton(
+                    onPressed: () {
+                      Share.share(title);
+                    },
+                    icon: Icon(Icons.share))
               ],
             ),
-            ),
-            );
+            SizedBox(
+              child: Text(
+                description,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
