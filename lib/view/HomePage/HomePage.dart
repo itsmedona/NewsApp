@@ -18,13 +18,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> fetchData() async {
-    Provider.of<HomePageController>(context,listen: false).fetchData();
+    Provider.of<HomePageController>(context, listen: false).fetchData();
   }
 
   @override
   Widget build(BuildContext context) {
-
-    final HomePageController=Provider.of<HomePageController>
+    final HomeControllerobj = Provider.of<HomePageController>(context);
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
@@ -37,12 +36,14 @@ class _HomePageState extends State<HomePage> {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) => HomePageWidget(
-            title: , //nmodel.articles?[index].title ?? "",
-            description:, // .articles?[index].description ?? "",
-            author:, //nmodel.articles?[index].author ?? "",
-            date: , //nmodel.articles?[index].publishedAt.toString() ?? "",
-            image:, // nmodel.articles?[index].urlToImage ?? ""
-            ),
+            title: HomeControllerobj.nmodel.articles?[index].title ?? "",
+            description:
+                HomeControllerobj.nmodel.articles?[index].description ?? "",
+            author: HomeControllerobj.nmodel.articles?[index].author ?? "",
+            date: HomeControllerobj.nmodel.articles?[index].publishedAt
+                    .toString() ??
+                "",
+            image: HomeControllerobj.nmodel.articles?[index].urlToImage ?? ""),
       ),
     );
   }

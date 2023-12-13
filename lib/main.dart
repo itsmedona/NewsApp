@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_application_api_dec11/controller/HomePageController.dart';
 import 'package:news_application_api_dec11/view/HomePage/HomePage.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,7 @@ class NewsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create:(context)=>)
+        ChangeNotifierProvider(create: (context) => HomePageController())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

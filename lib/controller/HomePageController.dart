@@ -6,10 +6,10 @@ import 'package:http/http.dart' as http;
 class HomePageController with ChangeNotifier {
   Map<String, dynamic> decodedData = {};
   NewsModel nmodel = NewsModel();
-  
+
   fetchData() async {
     final url = Uri.parse(
-        "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=8ddabb1dd03849f0a6c24fe8a19c71ea");
+        "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8ddabb1dd03849f0a6c24fe8a19c71ea");
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
