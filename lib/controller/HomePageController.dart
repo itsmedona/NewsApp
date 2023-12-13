@@ -13,9 +13,9 @@ class HomePageController with ChangeNotifier {
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> decodeData = {};
-      decodeData = jsonDecode(response.body);
-      nmodel = NewsModel.fromJson(decodeData);
+      Map<String, dynamic> decodedData = {};
+      decodedData = jsonDecode(response.body);
+      nmodel = NewsModel.fromJson(decodedData);
       notifyListeners();
       //setState(() {});
     } else {
