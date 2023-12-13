@@ -14,12 +14,13 @@ class _SearchPageState extends State<SearchPage> {
   NewsModel nSearch = NewsModel();
 
   void initState() {
-    fetchData();
+    searchData(searchData: '');
     super.initState();
   }
 
-  Future<void> fetchData() async {
-    Provider.of<SearchPageController>(context, listen: false).fetchData();
+  //Future<void> fetchData() async {
+    Future searchData({required String searchData})async{
+    Provider.of<SearchPageController>(context, listen: false).searchData(searchData: '');
   }
 
   @override

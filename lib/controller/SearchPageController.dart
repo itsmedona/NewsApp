@@ -8,12 +8,14 @@ class SearchPageController with ChangeNotifier {
   NewsModel nSearch = NewsModel();
   bool isLoading = false;
 
-  fetchData() async {
+  //fetchData() async {
+    Future searchData({required String searchData})async{
     isLoading = true;
     notifyListeners();
 
     final url = Uri.parse(
-        "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8ddabb1dd03849f0a6c24fe8a19c71ea");
+        "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8ddabb1dd03849f0a6c24fe8a19c71ea"
+        );
     final response = await http.get(url);
     print(response);
 
