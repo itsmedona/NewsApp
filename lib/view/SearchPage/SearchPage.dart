@@ -28,7 +28,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    final sController=Provider.of<SearchPageController>(context);
+    final sController = Provider.of<SearchPageController>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Search"),
@@ -47,7 +47,9 @@ class _SearchPageState extends State<SearchPage> {
                       hintText: "Search",
                       suffixIcon: IconButton(
                         onPressed: () {
-                          Provider.of<SearchPageController>(context,listen: false).nSearch(searchData:search.text.toLowerCase());
+                          //Provider.of<SearchPageController>(context,
+                          //      listen: false)
+                          //.nSearch(searchData: search.text.toLowerCase());
                         },
                         icon: Icon(Icons.search),
                       )),
@@ -55,21 +57,20 @@ class _SearchPageState extends State<SearchPage> {
               ],
             ),
           ),
-        
-      
-      Expanded(
-        child: ListView.builder(itemCount: sController.nSearch.totalResults,
-          itemBuilder: (context,index)=>Container(
-            height: 100,
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(20)
-            ),
-            child: Text(sController.nSearch.articles?[index].title??""),
-          )),
-      )
+          Expanded(
+            child: ListView.builder(
+                itemCount: sController.nSearch.totalResults,
+                itemBuilder: (context, index) => Container(
+                      height: 100,
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
+                          sController.nSearch.articles?[index].title ?? ""),
+                    )),
+          )
         ],
-        ),  //SizedBox(height: 20,)
+      ), //SizedBox(height: 20,)
     );
   }
 }
