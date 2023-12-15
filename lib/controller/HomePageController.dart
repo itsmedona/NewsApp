@@ -10,7 +10,7 @@ class HomePageController with ChangeNotifier {
 
   fetchData() async {
     final url = Uri.parse(
-        "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=8ddabb1dd03849f0a6c24fe8a19c71ea");
+        "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=604580e027e14c8d9fe56f738068e266");
     final response = await http.get(url);
 
     if (response.statusCode == 200) {

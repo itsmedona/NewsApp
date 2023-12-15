@@ -3,7 +3,31 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:news_application_api_dec11/model/NewsModel.dart';
 
+
+
 class SearchPageController with ChangeNotifier {
+  NewsModel searchmodel = NewsModel();
+  Map<String, dynamic> decodedData = {};
+  bool isloading = false;
+
+  Future<void> searchfn({required String searchData}) async {
+    isloading = true;
+    notifyListeners();
+    final url = Uri.parse(
+        "https://newsapi.org/v2/top-headlines?country=$searchData&category=business&apiKey=604580e027e14c8d9fe56f738068e266");
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      decodedData = jsonDecode(response.body);
+      searchmodel = NewsModel.fromJson(decodedData);
+      notifyListeners();
+    } else {
+      print("api failed");
+    }
+  }
+}
+
+/*class SearchPageController with ChangeNotifier {
   Map<String, dynamic> decodedData = {};
   NewsModel nSearch = NewsModel();
   bool isLoading = false;
@@ -31,4 +55,4 @@ class SearchPageController with ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
-}
+}*/
