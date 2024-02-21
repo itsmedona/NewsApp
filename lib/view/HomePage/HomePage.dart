@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_application_api_dec11/controller/HomePageController.dart';
-import 'package:news_application_api_dec11/model/NewsModel.dart';
+
 import 'package:news_application_api_dec11/view/HomePage/HomePageWidget.dart';
 import 'package:provider/provider.dart';
 
